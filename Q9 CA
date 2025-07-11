@@ -1,0 +1,29 @@
+const int ledPin = 13;
+const int unitTime = 500;
+const int dashTime = 3 * unitTime;
+const int intraCharDelay = unitTime;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void dot() {
+  digitalWrite(ledPin, HIGH);
+  delay(unitTime);
+  digitalWrite(ledPin, LOW);
+  delay(intraCharDelay);
+}
+
+void dash() {
+  digitalWrite(ledPin, HIGH);
+  delay(dashTime);
+  digitalWrite(ledPin, LOW);
+  delay(intraCharDelay);
+}
+
+void loop() {
+  dot(); dot(); dot();
+  dash(); dash(); dash();
+  dot(); dot(); dot();
+  delay(7 * unitTime);
+}
